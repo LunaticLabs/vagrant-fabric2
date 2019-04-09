@@ -18,7 +18,9 @@ module Vagrant
                      "--port=#{port} #{config.tasks.join(' ')}"
         else
           if config.install
-            @machine.communicate.sudo("pip install fabric")
+            @machine.communicate.sudo("apt-get update")
+            @machine.communicate.sudo("apt-get install python3 python3-pip")
+            @machine.communicate.sudo("pip3 install fabric")
             @machine.env.ui.info "Finished to install fabric library your VM."
           end
           @machine.communicate.execute("cd #{config.remote_current_dir} && " +
