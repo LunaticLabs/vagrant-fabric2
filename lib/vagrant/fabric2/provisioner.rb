@@ -21,13 +21,13 @@ module Vagrant
             @machine.communicate.sudo("apt-get update")
             @machine.communicate.sudo("apt-get install python3 python3-pip")
             @machine.communicate.sudo("pip3 install fabric")
-            @machine.env.ui.info "Finished to install fabric library your VM."
+            @machine.env.ui.info "Finished installing fabric library."
           end
           @machine.communicate.execute("cd #{config.remote_current_dir} && " +
                                            "#{config.fabric_path} -f #{config.fabfile_path} " +
                                            "--user=#{user} --hosts=127.0.0.1 --password=#{config.remote_password} " +
                                            "#{config.tasks.join(' ')}")
-          @machine.env.ui.info "Finished to execute tasks of fabric."
+          @machine.env.ui.info "Finished fabric task execution."
         end
       end
     end
