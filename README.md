@@ -1,28 +1,21 @@
-# Vagrant::Fabric2
+# Vagrant Fabric2 Provisioner
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/vagrant/fabric2`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is a [Vagrant](http://www.vagrantup.com) provisioner based on [Vagrant-Fabric](https://github.com/wutali/vagrant-fabric/), but adds support for [Fabric2](http://docs.fabfile.org/en/latest/).
 
 ## Installation
 
-Add this line to your application's Gemfile:
+To install, open your Vagrant environment and type
 
-```ruby
-gem 'vagrant-fabric2'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install vagrant-fabric2
-
+    vagrant plugin install vagrant-fabric2   
+    
 ## Usage
 
-TODO: Write usage instructions here
+Add the following configuration to your Vagrantfile::
+
+    config.vm.provision :fabric2 do |fabric2|
+        fabric2.fabfile_path = "./fabfile.py"
+        fabric2.tasks = [ "task1", "task2" ]
+    end
 
 ## Development
 
@@ -32,7 +25,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/vagrant-fabric2.
+Bug reports and pull requests are welcome on GitHub at https://github.com/lunaticlabs/vagrant-fabric2.
 
 ## License
 
